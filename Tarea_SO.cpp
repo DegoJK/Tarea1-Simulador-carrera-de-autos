@@ -47,7 +47,11 @@ int main(int argc, char* argv[]){
 	
     int cant_autos = std::stoi(argv[1]);
 	int distancia = std::stoi(argv[2]);
-	
+
+    if(cant_autos < 2 && distancia < 50){std::cerr <<"La cantidad de autos debe ser mayor o igual a 2 y la distancia debe ser mayor o igual a 50" << std::endl;return 1;}
+	if(cant_autos < 2){std::cerr <<"La cantidad de autos debe ser mayor o igual a 2" << std::endl;return 1;}
+    if(distancia < 50){std::cerr <<"La distancia debe ser mayor o igual a 50" << std::endl;return 1;}
+    
 	std::vector<std::thread> autos;//crea el vector al cual se le asignaran hilos
 	
 	for(int i=0; i<cant_autos; i++){
