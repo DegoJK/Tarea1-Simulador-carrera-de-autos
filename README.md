@@ -24,7 +24,6 @@ make
 ##Ejecución
 Para ejecutar el simulador, debes proporcionar dos argumentos: el número de autos y la distancia total de la carrera en metros. Ejemplo:
 ```bash
-Copiar código
 ./simulador 5 1000
 ```
 Salida esperada (el progreso variará por la naturaleza aleatoria del programa):
