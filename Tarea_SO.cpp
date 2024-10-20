@@ -41,19 +41,29 @@ void carRace(int carId, int raceDistance){
 	}
 }
 
-int main(){
+int main(int argc, char* argv[]){
+
+	if(argc != 3){std::cerr <<"Debe de introducir los parametros <num_autos> <distancia_total>" << std::endl;return 1;}
 	
+    int cant_autos = std::stoi(argv[1]);
+	int distancia = std::stoi(argv[2]);
 	
-	std::thread auto1(carRace, 1, 100);
-	std::thread auto2(carRace, 2, 100);
+	std::vector<std::thread> autos;//crea el vector al cual se le asignaran hilos
 	
-	auto1.join();
-	auto2.join();
+	for(int i=0; i<cant_autos; i++){
+		autos.emplace_back(carRace, i+1, distancia);//se le asigna al final del vector creado antriormente un hilo a cada auto
+	}
+
+	for (auto& AUTO : autos) {//se itera sobre el propio hilo para confirmar que alguno acabo su proceso
+	    AUTO.join();  // Esperar a que cada hilo termine
+	}
 	
 	std::cout << "\n\n..:: ORDEN DE LLEGADA ::.." << std::endl;
 	for(int i=0;i<rank.size();i++){
 		std::cout << (i + 1) << ". " << rank[i] << std::endl;
 	}
-
 	return 0;
 }
+
+
+
