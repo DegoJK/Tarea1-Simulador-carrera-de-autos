@@ -7,39 +7,42 @@
 std::mutex coutMutex;
 std::vector<std::string> rank;
 
-void funcionHebra(int id){
-	std::cout << "Hebra" << id << " esta ejecutandose.\n";
-}
-
 void carRace(int carId, int raceDistance){
 	int actualDistance = 0;
 	
 	// Inicializar un generador de números aleatorios independiente para cada hilo
 	srand(std::time(0) + carId);
     	
-    	
 	while(true){
-		//Calcular la distancia a avanzar
+		//Calcular la distancia a avanzar y dormir
     	int avanzar = rand() % 9 + 1;
     	int dormir = rand() % 400 + 100;
-		
-		actualDistance = actualDistance + avanzar;
-		
-		std::lock_guard<std::mutex> lock(coutMutex);
-		
-		if(actualDistance >= raceDistance){
-			actualDistance = raceDistance;
-			std::cout << "Auto " << carId << " ha terminado la carrera!" << std::endl;
-			rank.push_back("Auto" + std::to_string(carId));
 
+		//Duerme para variar la velocidad del auto
+		std::this_thread::sleep_for(std::chrono::milliseconds(dormir));		
+		
+		//Define la distancia actual del auto
+		actualDistance = actualDistance + avanzar;		
+		
+		//Bloquea la salida para evitar que se mezclen los mensajes
+		std::lock_guard<std::mutex> lock(coutMutex);
+
+		if(actualDistance >= raceDistance){
+			//Estandariza la distancia del auto para evitar que sobrepase la distancia total
+			actualDistance = raceDistance;
+			int ranking = rank.size() + 1;
+			std::cout << "Auto" << carId << " avanza " << avanzar << " metros y ha terminado la carrera en el lugar " << ranking << "!" << std::endl;
+			//Añade el auto al ranking final
+			rank.push_back("Auto" + std::to_string(carId));
 			break;
 		}
 		
-		std::cout << "Auto " << carId << ": " << actualDistance << " metros." << std::endl;
-		
-		std::this_thread::sleep_for(std::chrono::milliseconds(dormir));
+		//Imprime la distancia actual del auto
+		std::cout << "Auto" << carId << " avanza " << avanzar << " metros (total: " << actualDistance << " metros)" << std::endl;
+
 	}
 }
+
 
 int main(int argc, char* argv[]){
 
