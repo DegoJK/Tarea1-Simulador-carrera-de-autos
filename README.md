@@ -18,7 +18,7 @@ Este proyecto es un simulador de carrera de autos utilizando hilos en C++. Cada 
 ### Compilación en Linux/MacOS (con Makefile)
 Si estás en Linux o MacOS, puedes compilar el programa utilizando el `Makefile` incluido. Asegúrate de estar en el directorio raíz del proyecto y ejecuta:
 ```bash
-make clean
+make
 ```
 
 ##Ejecución
@@ -29,17 +29,20 @@ Copiar código
 ```
 Salida esperada (el progreso variará por la naturaleza aleatoria del programa):
 ```vbnet
-Auto 1 ha avanzado 30 metros
-Auto 2 ha avanzado 45 metros
-Auto 3 ha avanzado 40 metros
+Auto3 avanza 2 metros (total: 78 metros)
+Auto1 avanza 2 metros (total: 78 metros)
+Auto2 avanza 3 metros (total: 96 metros)
 ...
-Auto 2 ha llegado a la meta
-Auto 3 ha llegado a la meta
-Auto 1 ha llegado a la meta
+Auto2 avanza 6 metros y ha terminado la carrera en el lugar 1!
+Auto1 avanza 7 metros (total: 89 metros)
+Auto1 avanza 8 metros (total: 97 metros)
+Auto3 avanza 5 metros (total: 97 metros)
+Auto1 avanza 3 metros y ha terminado la carrera en el lugar 2!
+Auto3 avanza 4 metros y ha terminado la carrera en el lugar 3!
 
-Orden de llegada:
-1. Auto 2
-2. Auto 3
-3. Auto 1
+..:: ORDEN DE LLEGADA ::..
+1. Auto2
+2. Auto3
+3. Auto1
 ```
 
