@@ -41,7 +41,7 @@ Auto3 avanza 4 metros y ha terminado la carrera en el lugar 3!
 
 ..:: ORDEN DE LLEGADA ::..
 1. Auto2
-2. Auto3
-3. Auto1
+2. Auto1
+3. Auto3
 ```
 
