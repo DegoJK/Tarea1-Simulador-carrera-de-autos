@@ -22,15 +22,19 @@ make
 ```
 
 ## Ejecución
-Para ejecutar el simulador, debes proporcionar dos argumentos: el número de autos y la distancia total de la carrera en metros. Ejemplo:
+Para ejecutar el simulador, debes proporcionar dos argumentos: la distancia total de la carrera en metros y el número de autos. 
+Ejemplo:
 ```bash
-./simulador 5 1000
+./carrera 100 3
 ```
 Salida esperada (el progreso variará por la naturaleza aleatoria del programa):
 ```vbnet
-Auto3 avanza 2 metros (total: 78 metros)
-Auto1 avanza 2 metros (total: 78 metros)
-Auto2 avanza 3 metros (total: 96 metros)
+..:: INICIO DE LA CARRERA ::..
+Distancia total de la carrera: 100 metros 
+----------------------------------
+Auto3 avanza 2 metros (total: 2 metros)
+Auto1 avanza 2 metros (total: 2 metros)
+Auto2 avanza 3 metros (total: 3 metros)
 ...
 Auto2 avanza 6 metros y ha terminado la carrera en el lugar 1!
 Auto1 avanza 7 metros (total: 89 metros)
@@ -40,8 +44,9 @@ Auto1 avanza 3 metros y ha terminado la carrera en el lugar 2!
 Auto3 avanza 4 metros y ha terminado la carrera en el lugar 3!
 
 ..:: ORDEN DE LLEGADA ::..
-1. Auto2
-2. Auto1
-3. Auto3
+1.Auto2
+2.Auto1
+3.Auto3
 ```
-
+## Creditos
+### Diego Aguilera - Daniel Valdebenito
