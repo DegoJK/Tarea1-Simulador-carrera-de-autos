@@ -21,7 +21,7 @@ Si estás en Linux o MacOS, puedes compilar el programa utilizando el `Makefile`
 make
 ```
 
-##Ejecución
+## Ejecución
 Para ejecutar el simulador, debes proporcionar dos argumentos: el número de autos y la distancia total de la carrera en metros. Ejemplo:
 ```bash
 ./simulador 5 1000
